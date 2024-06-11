@@ -1,0 +1,15 @@
+# spring.datasource.url= jdbc:postgresql://localhost:5432/phoneshop_night
+# spring.datasource.username= phoneshop_night
+# spring.datasource.password= Phoneshop123
+
+spring:
+ datasource:
+  url: jdbc:postgresql://localhost:5432/phoneshop_night
+  username: phoneshop_night
+  password:  Phoneshop123
+ jpa:
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+   ddl-auto: update
