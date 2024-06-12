@@ -1,0 +1,18 @@
+How It Works Together
+
+    Controller: Receives HTTP requests and maps them to service calls.
+    Service: Contains business logic, interacts with the repository.
+    Repository: Handles database interactions.
+    Entity: Represents database structure.
+    DTO: Transfers data between client and server.
+    Mapper: Converts between DTO and entity.
+    Exception Handling: Manages exceptions in a centralized way.
+
+Example Flow
+
+    A client sends a POST request to create a new brand.
+    The BrandController receives the request, converts the BrandDTO to a Brand entity, and calls the create method in the BrandService.
+    The BrandService calls the save method on BrandRepository to store the entity in the database.
+    The saved entity is converted back to BrandDTO and returned to the client as a response.
+
+This architecture allows for clear separation of concerns, making the application maintainable and scalable.

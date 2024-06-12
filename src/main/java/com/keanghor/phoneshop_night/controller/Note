@@ -1,0 +1,11 @@
+* Controller
+
+The BrandController class is a REST controller that handles HTTP requests related to Brand operations.
+It uses Spring's @RestController and @RequestMapping annotations to define request mappings.
+
+1. Create Brand:
+    This method receives a BrandDTO, converts it to a Brand entity,
+    saves it using the brandService, and returns the saved Brand as a BrandDTO.
+
+2. Get a Brand by ID:
+    This method retrieves a Brand by its ID through the brandService, converts it to BrandDTO, and returns it.
