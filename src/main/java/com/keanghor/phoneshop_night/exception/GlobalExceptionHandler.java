@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<?> handleAPIException(ApiException e){
         ErrorResponse errorResponse = new ErrorResponse(e.getStatus(), e.getMessage());

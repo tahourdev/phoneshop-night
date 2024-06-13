@@ -18,7 +18,10 @@ Example Flow
 This architecture allows for clear separation of concerns, making the application maintainable and scalable.
 
 
-* Week 3 Mapstruct
+* Week 3 Mapstruct (DTO <-> Entity)
+JPA Specification
+
+Pagination
 
 
 
