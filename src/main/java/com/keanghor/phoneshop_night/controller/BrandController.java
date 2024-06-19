@@ -27,19 +27,17 @@ public class BrandController {
         return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(brand));
     }
 
-
     @GetMapping("{id}")
     public ResponseEntity<?> getOneBrand(@PathVariable("id") Integer brandId){
         Brand brand = brandService.getById(brandId);
         return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(brand));
     }
 
-
     @PutMapping("{id}")
-    public ResponseEntity<?> getUpdate(@PathVariable("id") Integer brandId, @RequestBody BrandDTO brandDTO){
+    public ResponseEntity<?> getUpdateBrand(@PathVariable("id") Integer brandId, @RequestBody BrandDTO brandDTO){
         Brand brand = BrandMapper.INSTANCE.toBrand(brandDTO);
-       Brand updateBrand = brandService.update(brandId, brand);
-       return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(updateBrand));
+        Brand brandUpdate = brandService.update(brandId, brand);
+        return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(brandUpdate));
     }
 
 /*
@@ -56,15 +54,9 @@ public class BrandController {
     @GetMapping
     public ResponseEntity<?> getBrands(@RequestParam Map<String, String> params){
         Page<Brand> page = brandService.getBrands(params);
+        System.out.println(params);
         PageDTO pageDTO = new PageDTO(page);
-        /*
-        List<BrandDTO> list = brandService.getBrands(params)
-                .stream()
-                .map(brand -> BrandMapper.INSTANCE.toBrandDTO(brand))
-                .collect(Collectors.toList());
-         */
         return ResponseEntity.ok(pageDTO);
     }
-
 
 }

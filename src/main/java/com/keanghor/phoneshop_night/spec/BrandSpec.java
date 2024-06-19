@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 public class BrandSpec implements Specification<Brand> {
     private final BrandFilter brandFilter;
-
     List<Predicate> predicates = new ArrayList<>();
 
     @Override

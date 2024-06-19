@@ -10,8 +10,11 @@ public interface BrandService {
     Brand create(Brand brand);
     Brand getById(Integer id);
     Brand update(Integer id, Brand brandUpdate);
-//    List<Brand> getBrands();
-//    List<Brand> getBrands(String name);
-//    List<Brand> getBrands(Map<String, String> params);
-Page<Brand> getBrands(Map<String, String> params);
+    Page<Brand> getBrands(Map<String, String> params);
+
+
+    //    List<Brand> getBrands();
+    //    List<Brand> getBrands(String name);
+    //    List<Brand> getBrands(Map<String, String> params);
+
 }

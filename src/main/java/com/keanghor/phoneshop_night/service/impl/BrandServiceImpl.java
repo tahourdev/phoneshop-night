@@ -15,25 +15,28 @@ import com.keanghor.phoneshop_night.service.BrandService;
 import java.util.List;
 import java.util.Map;
 
-@Service //Business layer
+@Service // Annotates this class as a service component in Spring's context
 public class BrandServiceImpl implements BrandService {
 
-    @Autowired
+    @Autowired // Injects the BrandRepository dependency
     private BrandRepository brandRepository;
 
     @Override
-    public Brand create(Brand brand) {
+    public Brand create(Brand brand){
+        // Saves the provided Brand object to the database
         return brandRepository.save(brand);
     }
 
     @Override
     public Brand getById(Integer id) {
+        // Retrieves a Brand by its ID; throws an exception if not found
         return brandRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Brand", id));
     }
 
     @Override
     public Brand update(Integer id, Brand brandUpdate) {
+        // Updates the Brand with the provided ID using the data in brandUpdate
         Brand brand = getById(id);
         brand.setName(brandUpdate.getName());
         return brandRepository.save(brand);
@@ -58,6 +61,7 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public  Page<Brand> getBrands(Map<String, String> params) {
+        // Constructs a filter for searching Brands based on parameters
         BrandFilter brandFilter = new BrandFilter();
         if(params.containsKey("name")){
             String name = params.get("name");
@@ -69,18 +73,23 @@ public class BrandServiceImpl implements BrandService {
             brandFilter.setId(Integer.parseInt(id));
         }
 
+        // Set the page limit, defaulting to a predefined value
         int pageLimit= PageUtil.DEFAULT_PAGE_LIMIT;
         if(params.containsKey(PageUtil.PAGE_LIMIT)){
             pageLimit = Integer.parseInt(params.get(PageUtil.PAGE_LIMIT));
         }
 
+        // Set the page number, defaulting to a predefined value
         int pageNumber = PageUtil.DEFAULT_PAGE_NUMBER;
         if(params.containsKey(PageUtil.PAGE_NUMBER)){
             pageNumber = Integer.parseInt(params.get(PageUtil.PAGE_NUMBER));
         }
 
+        // Create a specification based on the filter and define the pagination
         BrandSpec brandSpec = new BrandSpec(brandFilter);
         Pageable pageable = PageUtil.getPageable(pageNumber, pageLimit);
+
+        // Fetch the page of Brands matching the specification and pagination
         Page<Brand> page = brandRepository.findAll(brandSpec, pageable);
         return page;
     }
