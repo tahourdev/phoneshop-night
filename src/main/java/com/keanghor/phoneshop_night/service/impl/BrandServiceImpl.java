@@ -63,6 +63,7 @@ public class BrandServiceImpl implements BrandService {
     public  Page<Brand> getBrands(Map<String, String> params) {
         // Constructs a filter for searching Brands based on parameters
         BrandFilter brandFilter = new BrandFilter();
+
         if(params.containsKey("name")){
             String name = params.get("name");
             brandFilter.setName(name);

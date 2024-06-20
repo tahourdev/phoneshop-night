@@ -24,5 +24,26 @@ JPA Specification
 Pagination
 
 
+Unit Test
+-Controller
+-Service
+-repository
+
+------------------
+Code Coverage : 90%
+
+------------------
+Repository Test:
+-H2 Database (In memory)
+
+------------------
+Unit Test :
+Integration Test
+
+------------------
+H2 database benefit
+
+
+
 
 
