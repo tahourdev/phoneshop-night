@@ -3,6 +3,9 @@ import com.keanghor.phoneshop_night.exception.ResourceNotFoundException;
 import com.keanghor.phoneshop_night.spec.BrandFilter;
 import com.keanghor.phoneshop_night.spec.BrandSpec;
 import com.keanghor.phoneshop_night.util.PageUtil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,10 +19,11 @@ import java.util.List;
 import java.util.Map;
 
 @Service // Annotates this class as a service component in Spring's context
+@RequiredArgsConstructor
 public class BrandServiceImpl implements BrandService {
 
     @Autowired // Injects the BrandRepository dependency
-    private BrandRepository brandRepository;
+    private final BrandRepository brandRepository;
 
     @Override
     public Brand create(Brand brand){

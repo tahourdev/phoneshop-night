@@ -2,29 +2,29 @@
 # spring.datasource.username= phoneshop_night
 # spring.datasource.password= Phoneshop123
 
-#spring:
-# datasource:
-#  url: jdbc:postgresql://localhost:5432/phoneshop_night
-#  username: phoneshop_night
-#  password:  Phoneshop123
-# jpa:
-#  properties:
-#   hibernate:
-#    dialect: org.hibernate.dialect.PostgreSQLDialect
-#  hibernate:
-#   ddl-auto: update
-
 spring:
  datasource:
-  url: jdbc:h2:mem:mydb
-  username: sa
-  password:
-#  driverClassName: org.h2.Driver
+  url: jdbc:postgresql://localhost:5432/phoneshop_night
+  username: phoneshop_night
+  password:  Phoneshop123
  jpa:
-  dialect: org.hibernate.dialect.H2Dialect
- h2:
-  console:
-   enabled: true
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+   ddl-auto: update
+
+#spring:
+# datasource:
+#  url: jdbc:h2:mem:mydb
+#  username: sa
+#  password:
+##  driverClassName: org.h2.Driver
+# jpa:
+#  dialect: org.hibernate.dialect.H2Dialect
+# h2:
+#  console:
+#   enabled: true
 
 
 

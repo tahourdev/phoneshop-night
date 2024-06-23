@@ -54,7 +54,7 @@ public class BrandController {
     @GetMapping
     public ResponseEntity<?> getBrands(@RequestParam Map<String, String> params){
         Page<Brand> page = brandService.getBrands(params);
-        System.out.println(params);
+//        System.out.println(params);
         PageDTO pageDTO = new PageDTO(page);
         return ResponseEntity.ok(pageDTO);
     }
