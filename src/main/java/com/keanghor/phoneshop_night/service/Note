@@ -1,0 +1,5 @@
+* Service Layer:
+    The BrandService interface and its implementation BrandServiceImpl handle business logic:
+
+   1.  create(Brand brand): Saves a Brand entity to the database.
+    2. getById(Integer id): Retrieves a Brand by its ID or throws an ApiException if not found.

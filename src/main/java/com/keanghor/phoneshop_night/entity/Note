@@ -1,0 +1,6 @@
+* Entity Layer
+    The Brand class is an entity that maps to the brands table in the database.
+    It uses JPA annotations to define the table structure:
+
+    1. @Entity and @Table indicate that this class is a JPA entity mapped to the brands table.
+    2. @Id and @GeneratedValue define the primary key and its generation strategy.

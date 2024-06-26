@@ -1,0 +1,5 @@
+* DTO Layer:
+    The BrandDTO class represents the data transfer object for Brand.
+    It is used to transfer data between the client and server, ensuring that only necessary data is exposed.
+
+    This DTO excludes the id field, assuming the client does not need to provide it.

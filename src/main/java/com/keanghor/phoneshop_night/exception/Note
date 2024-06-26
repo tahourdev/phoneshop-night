@@ -1,0 +1,3 @@
+* Exception Handling:
+    The GlobalExceptionHandler class manages exceptions globally for the application:
+    It catches ApiException and returns a ResponseEntity with the exception's status and message.

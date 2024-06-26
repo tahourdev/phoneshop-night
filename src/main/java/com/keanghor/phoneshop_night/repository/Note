@@ -1,0 +1,3 @@
+* Repository Layer:
+    The BrandRepository extends JpaRepository to provide CRUD operations for the Brand entity:
+    This interface allows CRUD operations without needing to implement methods explicitly.
