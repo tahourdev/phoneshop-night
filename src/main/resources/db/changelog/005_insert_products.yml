@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005_insert_products
+      author: enghourheng26@gmail.com
+      changes:
+        - createSequence:
+            sequenceName: product_id_seq
+            startValue: 1
+            incrementBy: 1
+
+        - loadData:
+            tableName: products
+            columns:
+              - column:
+                  name: product_id
+                  type: NUMERIC
+              - column:
+                  name: product_name
+                  type: STRING
+#            file: db/data/002_brands.csv

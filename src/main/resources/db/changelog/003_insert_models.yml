@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_insert_models
+      author: enghourheng26@gmail.com
+      changes:
+        - loadData:
+            tableName: models
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: brand_id
+                  type: BIGINT
+            file: db/data/003_models.csv

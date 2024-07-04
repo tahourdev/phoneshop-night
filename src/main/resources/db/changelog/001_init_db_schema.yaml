@@ -1,0 +1,101 @@
+#databaseChangeLog:
+#  - changeSet:
+#      id: 001_init_db_schema
+#      author: enghourheng26@gmail.com
+#      changes:
+#        - createTable:
+#            tableName: brands
+#            columns:
+#              - column:
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                  name: brand_id
+#                  type: BIGINT
+#              - column:
+#                  name: brand_name
+#                  type: VARCHAR(50)
+#
+#        - createTable:
+#            tableName: models
+#            columns:
+#              - column:
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                  name: id
+#                  type: BIGINT
+#              - column:
+#                  name: name
+#                  type: VARCHAR(50)
+#              - column:
+#                  name: brand_id
+#                  type: BIGINT
+#                  constraints:
+#                    - foreignKeyName: fk_models_brands
+#                      references: brands(brand_id)
+
+databaseChangeLog:
+  - changeSet:
+      id: 001_init_db_schema
+      author: enghourheng26@gmail.com
+      changes:
+        - createTable:
+            tableName: brands
+            columns:
+              - column:
+                  name: brand_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: brand_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: models
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: brand_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: models
+            baseColumnNames: brand_id
+            constraintName: fk_models_brands
+            referencedTableName: brands
+            referencedColumnNames: brand_id
+
+        - createTable:
+            tableName: colors
+            columns:
+              - column:
+                  name: color_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: color_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false

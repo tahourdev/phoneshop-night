@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004_insert_colors
+      author: enghourheng26@gmail.com
+      changes:
+        - loadData:
+            tableName: colors
+            columns:
+              - column:
+                  name: color_id
+                  type: BIGINT
+              - column:
+                  name: color_name
+                  type: VARCHAR(50)
+            file: db/data/004_colors.csv

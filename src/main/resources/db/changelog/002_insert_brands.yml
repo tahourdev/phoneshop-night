@@ -1,0 +1,42 @@
+#databaseChangeLog:
+#  - changeSet:
+#      id: 002_insert_brands
+#      author: enghourheng26@gmail.com
+#      changes:
+#        - createSequence:
+#            sequenceName: brand_id_seq
+#            startValue: 1
+#            incrementBy: 1
+#
+#        - loadData:
+#            tableName: brands
+#            columns:
+#              - column:
+#                  name: brand_id
+#                  type: NUMERIC
+#              - column:
+#                  name: brand_name
+#                  type: STRING
+#            file: db/data/002_brands.csv
+
+databaseChangeLog:
+  - changeSet:
+      id: 002_insert_brands
+      author: enghourheng26@gmail.com
+      changes:
+        - createSequence:
+            sequenceName: brand_id_seq
+            startValue: 1
+            incrementBy: 1
+
+        - loadData:
+            tableName: brands
+            columns:
+              - column:
+                  name: brand_id
+                  type: BIGINT
+              - column:
+                  name: brand_name
+                  type: VARCHAR(255)
+            file: db/data/002_brands.csv
+

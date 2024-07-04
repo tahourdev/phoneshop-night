@@ -14,11 +14,9 @@ spring:
   hibernate:
    ddl-auto: update
 
-mvc:
- pathmatch:
-  matching-strategy: ant_path_matcher
-server:
- port: 8080
+liquibase:
+ change-log: classpath:db/changeLog/db.changeLog-master.yaml
+ enabled: false
 
 
 

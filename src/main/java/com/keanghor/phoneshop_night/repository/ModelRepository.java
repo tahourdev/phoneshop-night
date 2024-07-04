@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ModelRepository extends JpaRepository<Model, Integer> {
-    List<Model> findByBrandId (Integer brandId);
+public interface ModelRepository extends JpaRepository<Model, Long> {
+    List<Model> findByBrandId (Long brandId);
 }

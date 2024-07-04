@@ -7,7 +7,7 @@ import com.keanghor.phoneshop_night.entity.Brand;
 import java.util.List;
 
 @Repository // use for communicate with database
-public interface BrandRepository extends JpaRepository<Brand, Integer>, JpaSpecificationExecutor<Brand> {
+public interface BrandRepository extends JpaRepository<Brand, Long>, JpaSpecificationExecutor<Brand> {
 
     List<Brand> findByNameIgnoreCase(String name);
     List<Brand> findByNameLike(String name);

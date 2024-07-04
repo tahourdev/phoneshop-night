@@ -1,0 +1,15 @@
+databaseChangeLog:
+- changeSet:
+    id: 1719839880740-1
+    author: enghour (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 1
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: brand_id_seq
+        startValue: 1
+
