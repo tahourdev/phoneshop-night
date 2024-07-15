@@ -12,9 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -51,9 +49,22 @@ public class ProductServiceImpl implements ProductService {
         productImportHistory.setDateImport(productImportDTO.getImportDate()); // Set LocalDateTime
         productImportHistoryRepository.save(productImportHistory);
 
-        updateSalePrice(product);
-
         productRepository.save(product);
+    }
+
+    @Override
+    public void setSalePrice(Long productId, BigDecimal price) {
+        if (price.compareTo(BigDecimal.valueOf(0.0001)) < 0) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Sale price must be greater than 0.0001");
+        }
+        Product product = getById(productId);
+        product.setSalePrice(price);
+        productRepository.save(product);
+    }
+
+    @Override
+    public void validateStock(long productId, Integer numberOfUnit) {
+
     }
 
     @Override
@@ -63,26 +74,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProducts() {
-        List<Product> products = productRepository.findAll();
-        products.forEach(this::updateSalePrice);
-        return products;
+        return productRepository.findAll();
     }
 
-    private void updateSalePrice(Product product) {
-        List<BigDecimal> allPrices = productImportHistoryRepository.findByProductId(product.getId())
-                .stream()
-                .map(ProductImportHistory::getPricePerUnit)
-                .toList();
 
-        Optional<BigDecimal> maxPriceOptional = allPrices.stream().max(Comparator.naturalOrder());
-
-        if (maxPriceOptional.isPresent()) {
-            BigDecimal maxPrice = maxPriceOptional.get();
-            BigDecimal salePrice = maxPrice.multiply(BigDecimal.valueOf(1.1));
-            product.setSalePrice(salePrice);
-        } else {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "No import prices found for the product");
-        }
-    }
 }
 

@@ -2,7 +2,7 @@ package com.keanghor.phoneshop_night.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+import javax.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 
 @Data
@@ -25,7 +25,7 @@ public class Product {
     @Column(name = "available_unit")
     private Integer availableUnit;
 
-    @ManyToOne
+    @ManyToOne //Many product to one model
     @JoinColumn(name = "model_id")
     private Model model;
 
@@ -33,6 +33,7 @@ public class Product {
     @JoinColumn(name = "color_id")
     private Color color;
 
+    @DecimalMin(value = "0.00001", message = "Price must be greater than 0")
     @Column(name = "sale_price")
     private BigDecimal salePrice;
 

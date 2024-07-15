@@ -4,6 +4,7 @@ import com.keanghor.phoneshop_night.dto.ProductImportDTO;
 import com.keanghor.phoneshop_night.entity.Product;
 import com.keanghor.phoneshop_night.entity.ProductImportHistory;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductService {
@@ -12,4 +13,6 @@ public interface ProductService {
     Product create(Product product);
     Product getById(Long id);
     void importProduct(ProductImportDTO productImportDTO);
+    void setSalePrice(Long productId, BigDecimal price);
+    void validateStock(long productId, Integer numberOfUnit);
 }

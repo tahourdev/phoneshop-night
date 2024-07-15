@@ -13,9 +13,11 @@ public interface ModelEntityMapper {
 
     //Convert DTO to Model
     @Mapping(target = "brand", source = "brandId")
+    // This defines a mapping rule for converting ModelDTO to Model. It maps the brandId field of ModelDTO to the brand field of Model.
     Model toModel(ModelDTO modelDTO);
 
     //Convert Model to DTO
     @Mapping(target = "brandId", source = "brand.id")
+    // This defines a mapping rule for converting Model to ModelDTO. It maps the id field of the brand object in Model to the brandId field of ModelDTO.
     ModelDTO toModelDTO(Model entity);
 }

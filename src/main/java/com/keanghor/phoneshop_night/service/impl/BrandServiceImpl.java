@@ -46,23 +46,6 @@ public class BrandServiceImpl implements BrandService {
         return brandRepository.save(brand);
     }
 
-    /*@Override
-    public List<Brand> getBrands(Map<String, String> params) {
-        BrandFilter brandFilter = new BrandFilter();
-        if(params.containsKey("name")){
-            String name = params.get("name");
-            brandFilter.setName(name);
-
-        }
-        if(params.containsKey("id")){
-            String id = params.get("id");
-            brandFilter.setId(Integer.parseInt(id));
-        }
-        BrandSpec brandSpec = new BrandSpec(brandFilter);
-        Page<Brand> brands = brandRepository.findAll(brandSpec);
-        return brands;
-    }*/
-
     @Override
     public  Page<Brand> getBrands(Map<String, String> params) {
         // Constructs a filter for searching Brands based on parameters
@@ -98,19 +81,5 @@ public class BrandServiceImpl implements BrandService {
         Page<Brand> page = brandRepository.findAll(brandSpec, pageable);
         return page;
     }
-
-/*
-
-    @Override
-    public List<Brand> getBrands() {
-        return  brandRepository.findAll();
-    }
-
-    @Override
-    public List<Brand> getBrands(String name) {
-//        return brandRepository.findByNameLike("%"+ name + "%");
-        return brandRepository.findByNameContaining(name);
-    }
-*/
 
 }

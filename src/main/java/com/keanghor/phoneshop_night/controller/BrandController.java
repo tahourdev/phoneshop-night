@@ -91,17 +91,6 @@ public class BrandController {
         return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(brandUpdate));
     }
 
-/*
-    @GetMapping
-    public ResponseEntity<?> getBrands(){
-        List<BrandDTO> list = brandService.getBrands()
-                .stream()
-                .map(brand -> BrandMapper.INSTANCE.toBrandDTO(brand))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(list);
-    }
-    */
-
     @Operation(
             tags = "Brand Controller",
             description = "Get Brand by Limitation and Pagination",
